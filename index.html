@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espacio San Isidro · Orientación vocacional, laboral y personal</title>
+<meta name="description" content="Centro de orientación vocacional en San Isidro con más de 30 años de experiencia. Acompañamos a chicos, jóvenes y adultos a elegir su carrera, estudiar mejor y dar sus primeros pasos en el trabajo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#ECE4D9; --cream-2:#E4DACC; --paper:#F6F1E8;
+    --bronze:#B0875A; --bronze-deep:#8C6A3E; --gold-soft:#D9B985;
+    --teal:#34505E; --teal-deep:#22343D;
+    --ink:#2C2823; --muted:#6E665B; --line:#D8CCBA;
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font-family:"Mulish",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.12;margin:0;color:var(--teal-deep);letter-spacing:-0.01em;}
+  p{margin:0 0 1rem;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--bronze-deep);margin-bottom:1.1rem;}
+  .eyebrow svg{width:18px;height:18px;flex:none;}
+  .lead{font-size:1.16rem;color:var(--muted);max-width:60ch;}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:.55rem;font-family:"Mulish",sans-serif;
+    font-weight:700;font-size:.95rem;padding:.85rem 1.6rem;border-radius:2px;cursor:pointer;
+    border:1px solid transparent;transition:transform .18s ease, background .18s ease, color .18s ease;}
+  .btn svg{width:18px;height:18px;}
+  .btn-primary{background:var(--teal);color:var(--paper);}
+  .btn-primary:hover{background:var(--teal-deep);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:var(--teal-deep);border-color:var(--bronze);}
+  .btn-ghost:hover{background:var(--bronze);color:var(--paper);transform:translateY(-2px);}
+  .btn-ig{background:transparent;color:var(--bronze-deep);border-color:var(--bronze);}
+  .btn-ig:hover{background:var(--bronze);color:var(--paper);transform:translateY(-2px);}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(236,228,217,.85);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand svg{width:34px;height:34px;}
+  .brand b{font-family:"Mulish",sans-serif;font-weight:600;font-size:1.05rem;letter-spacing:.05em;color:var(--ink);}
+  .nav-links{display:flex;align-items:center;gap:28px;}
+  .nav-links a{font-size:.92rem;font-weight:600;color:var(--ink);opacity:.7;transition:opacity .15s,color .15s;position:relative;}
+  .nav-links a:hover{opacity:1;color:var(--bronze-deep);}
+  .nav-links a.active{opacity:1;color:var(--bronze-deep);}
+  .nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--bronze);}
+  .nav-cta{padding:.55rem 1.1rem;font-size:.86rem;color:var(--paper)!important;opacity:1!important;}
+  .nav-cta::after{display:none!important;}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px;}
+  .burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.25s;}
+
+  /* page switching (progressive enhancement) */
+  .js .page{display:none;}
+  .js .page.active{display:block;animation:fade .4s ease;}
+  @keyframes fade{from{opacity:0;}to{opacity:1;}}
+
+  section.block{padding:92px 0;}
+  .section-head{max-width:62ch;margin-bottom:54px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head h2{font-size:clamp(2rem,3.6vw,2.8rem);margin-bottom:1rem;}
+
+  /* hero */
+  .hero{padding:84px 0 70px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;}
+  .hero h1{font-size:clamp(2.5rem,5vw,3.9rem);}
+  .hero h1 em{font-style:italic;color:var(--bronze-deep);font-weight:400;}
+  .hero .lead{margin:1.6rem 0 2.2rem;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:6px;
+    padding:48px 40px;text-align:center;box-shadow:0 24px 60px -38px rgba(44,40,35,.45);}
+  .hero-card .mark{width:120px;height:120px;margin:0 auto 22px;}
+  .hero-card .name{font-family:"Mulish",sans-serif;font-weight:600;letter-spacing:.12em;color:var(--bronze-deep);font-size:1.1rem;}
+  .hero-card .tag{font-size:.86rem;color:var(--muted);margin-top:.4rem;}
+  .hero-card .divider{height:1px;background:var(--line);margin:26px 0;}
+  .hero-stats{display:flex;justify-content:center;gap:30px;}
+  .stat b{font-family:"Fraunces",serif;font-weight:600;font-size:1.9rem;color:var(--teal);display:block;line-height:1;}
+  .stat span{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+
+  /* trust strip */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream-2);}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+  .trust-item{padding:26px 22px;display:flex;gap:14px;align-items:flex-start;border-left:1px solid var(--line);}
+  .trust-item:first-child{border-left:0;}
+  .trust-item svg{width:26px;height:26px;color:var(--bronze);flex:none;}
+  .trust-item b{display:block;font-family:"Fraunces",serif;font-weight:600;color:var(--teal-deep);font-size:1.05rem;line-height:1.2;margin-bottom:2px;}
+  .trust-item span{font-size:.85rem;color:var(--muted);}
+
+  /* cards */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:34px 30px;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s;}
+  .card:hover{transform:translateY(-4px);box-shadow:0 20px 44px -34px rgba(44,40,35,.5);border-color:var(--bronze);}
+  .card .ico{width:42px;height:42px;color:var(--bronze);margin-bottom:18px;}
+  .card h3{font-size:1.3rem;margin-bottom:.6rem;}
+  .card p{font-size:.96rem;color:var(--muted);margin-bottom:0;}
+  .card .who{margin-top:16px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--bronze-deep);}
+
+  /* about */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .photo{aspect-ratio:4/5;border-radius:6px;border:1px solid var(--line);
+    background:repeating-linear-gradient(135deg,rgba(176,135,90,.06) 0 12px,transparent 12px 24px),var(--paper);
+    display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);
+    font-size:.82rem;letter-spacing:.04em;padding:24px;}
+  .photo svg{width:52px;height:52px;opacity:.5;margin-bottom:12px;}
+  blockquote.brand{border-left:2px solid var(--bronze);padding-left:22px;margin:28px 0 0;
+    font-family:"Fraunces",serif;font-style:italic;font-size:1.25rem;color:var(--teal-deep);line-height:1.4;}
+
+  /* process */
+  .process{background:var(--teal-deep);color:var(--paper);}
+  .process h2,.process h3{color:var(--paper);}
+  .process .eyebrow{color:var(--gold-soft);}
+  .process .lead{color:rgba(246,241,232,.72);}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:54px;}
+  .step{border-top:1px solid rgba(216,204,186,.28);padding-top:22px;}
+  .step .num{font-family:"Fraunces",serif;font-size:2.4rem;color:var(--gold-soft);line-height:1;display:block;margin-bottom:14px;}
+  .step h3{font-size:1.16rem;margin-bottom:.5rem;}
+  .step p{font-size:.92rem;color:rgba(246,241,232,.66);margin-bottom:0;}
+
+  /* testimonials */
+  .tst{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:32px 30px;display:flex;flex-direction:column;}
+  .tst .quote{font-family:"Fraunces",serif;font-style:italic;font-size:1.08rem;color:var(--ink);line-height:1.5;flex:1;}
+  .tst .who{display:flex;align-items:center;gap:14px;margin-top:24px;}
+  .tst .avatar{width:46px;height:46px;border-radius:50%;background:var(--cream-2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;color:var(--bronze-deep);font-size:1.1rem;}
+  .tst .who b{display:block;font-size:.95rem;color:var(--teal-deep);}
+  .tst .who span{font-size:.8rem;color:var(--muted);}
+  .tst-feature{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:48px 44px;text-align:center;max-width:760px;margin:0 auto;}
+  .tst-feature .quote{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--teal-deep);line-height:1.45;}
+  .tst-feature .who{margin-top:22px;font-weight:700;letter-spacing:.06em;color:var(--bronze-deep);font-size:.9rem;}
+
+  /* values list */
+  .values{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px;margin-top:8px;}
+  .value{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line);}
+  .value svg{width:22px;height:22px;color:var(--bronze);flex:none;margin-top:3px;}
+  .value b{display:block;color:var(--teal-deep);font-family:"Fraunces",serif;font-weight:600;}
+  .value p{margin:2px 0 0;font-size:.92rem;color:var(--muted);}
+
+  /* contact */
+  .contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:46px;}
+  .ccard{border:1px solid var(--line);border-radius:6px;padding:38px 34px;background:var(--paper);text-align:center;}
+  .ccard .ico{width:46px;height:46px;color:var(--bronze);margin:0 auto 16px;}
+  .ccard h3{font-size:1.35rem;margin-bottom:.5rem;}
+  .ccard p{color:var(--muted);font-size:.95rem;margin-bottom:22px;}
+  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .info-item{display:flex;gap:14px;align-items:flex-start;}
+  .info-item svg{width:22px;height:22px;color:var(--bronze);flex:none;margin-top:3px;}
+  .info-item b{display:block;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+  .info-item p{margin:0;font-size:1rem;}
+  .map{margin-top:40px;aspect-ratio:21/7;border-radius:6px;border:1px solid var(--line);
+    background:repeating-linear-gradient(135deg,rgba(176,135,90,.06) 0 12px,transparent 12px 24px),var(--paper);
+    display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:20px;}
+
+  /* CTA band */
+  .cta-band{background:var(--bronze);color:var(--paper);border-radius:6px;padding:54px 40px;text-align:center;}
+  .cta-band h2{color:var(--paper);font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:.7rem;}
+  .cta-band p{color:rgba(246,241,232,.9);max-width:48ch;margin:0 auto 1.8rem;}
+  .cta-band .btn-primary{background:var(--teal-deep);}
+  .cta-band .btn-primary:hover{background:var(--ink);}
+
+  /* footer */
+  footer{background:var(--teal-deep);color:rgba(246,241,232,.7);padding:54px 0 30px;}
+  .foot-top{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid rgba(216,204,186,.2);}
+  .foot-brand{display:flex;align-items:center;gap:12px;}
+  .foot-brand svg{width:36px;height:36px;}
+  .foot-brand b{font-family:"Mulish",sans-serif;color:var(--paper);font-weight:600;letter-spacing:.05em;}
+  .foot-links{display:flex;gap:24px;flex-wrap:wrap;}
+  .foot-links a{font-size:.9rem;}
+  .foot-links a:hover{color:var(--gold-soft);}
+  .foot-bottom{padding-top:24px;font-size:.82rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+
+  /* reveal */
+  .js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease;}
+  .js .reveal.in{opacity:1;transform:none;}
+
+  /* responsive */
+  @media(max-width:920px){
+    .hero-grid,.split,.contact-cards{grid-template-columns:1fr;gap:44px;}
+    .grid-3{grid-template-columns:1fr 1fr;}
+    .steps,.trust-grid,.info-grid,.values{grid-template-columns:1fr 1fr;gap:24px;}
+    .trust-item{border-left:0;}
+    .photo{aspect-ratio:16/10;}
+  }
+  @media(max-width:640px){
+    body{font-size:16px;}
+    .nav-links{position:absolute;top:74px;left:0;right:0;flex-direction:column;gap:0;
+      background:var(--cream);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s ease;}
+    .nav-links.open{max-height:420px;}
+    .nav-links a{padding:16px 24px;width:100%;border-top:1px solid var(--line);opacity:.85;}
+    .nav-links a.active::after{display:none;}
+    .nav-links .nav-cta{margin:14px 24px;text-align:center;justify-content:center;}
+    .burger{display:block;}
+    .grid-3,.steps,.trust-grid,.info-grid,.values,.contact-cards{grid-template-columns:1fr;}
+    section.block{padding:60px 0;}
+    .hero{padding:48px 0 50px;}
+    .hero-card{padding:38px 26px;}
+    .tst-feature,.cta-band{padding:40px 26px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .js .reveal{opacity:1;transform:none;transition:none;}
+    .js .page.active{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="Espacio San Isidro, inicio">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#B0875A" stroke-width="1.6" aria-hidden="true">
+        <rect x="26" y="26" width="48" height="48" transform="rotate(45 50 50)"/>
+        <circle cx="50" cy="39" r="12"/><circle cx="61" cy="50" r="12"/><circle cx="50" cy="61" r="12"/><circle cx="39" cy="50" r="12"/>
+        <path d="M50 12 v-6 M50 88 v6 M12 50 h-6 M88 50 h6"/>
+      </svg>
+      <b>Espacio San Isidro</b>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#inicio" data-page>Inicio</a>
+      <a href="#servicios" data-page>Servicios</a>
+      <a href="#nosotras" data-page>Nosotras</a>
+      <a href="#testimonios" data-page>Testimonios</a>
+      <a href="#contacto" data-page>Contacto</a>
+      <a class="btn btn-primary nav-cta" id="waNav" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.3.3c-.2.2-.3.4-.2.6.2.4.9 1.4 1.9 2.2 1.2 1.1 2.2 1.4 2.5 1.5.2.1.4 0 .5-.1l.9-1c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3 0 .2 0 .7-.2 1.2z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<!-- ========================= INICIO ========================= -->
+<div class="page active" id="inicio">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B0875A" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>
+          Orientación vocacional · San Isidro · +30 años
+        </span>
+        <h1>Elegí tu camino con el respaldo de <em>más de 30 años</em> de experiencia.</h1>
+        <p class="lead">Somos Majo y Vero, un centro dedicado al asesoramiento vocacional, laboral y personal. Acompañamos a chicos, jóvenes y adultos a elegir su carrera, ordenar su forma de estudiar y dar sus primeros pasos en el trabajo.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary wa" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.3.3c-.2.2-.3.4-.2.6.2.4.9 1.4 1.9 2.2 1.2 1.1 2.2 1.4 2.5 1.5.2.1.4 0 .5-.1l.9-1c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3 0 .2 0 .7-.2 1.2z"/></svg>
+            Pedí una entrevista
+          </a>
+          <a class="btn btn-ghost" href="#servicios" data-page>Conocé los servicios</a>
+        </div>
+      </div>
+      <div class="hero-card reveal" aria-hidden="true">
+        <svg class="mark" viewBox="0 0 100 100" fill="none" stroke="#B0875A" stroke-width="1.3">
+          <rect x="26" y="26" width="48" height="48" transform="rotate(45 50 50)"/>
+          <circle cx="50" cy="39" r="12"/><circle cx="61" cy="50" r="12"/><circle cx="50" cy="61" r="12"/><circle cx="39" cy="50" r="12"/>
+          <path d="M50 12 v-7 M50 88 v7 M12 50 h-7 M88 50 h7 M73 27 l5 -5 M27 27 l-5 -5 M73 73 l5 5 M27 73 l-5 5"/>
+        </svg>
+        <div class="name">Espacio San Isidro</div>
+        <div class="tag">Asesoramiento vocacional, laboral y personal</div>
+        <div class="divider"></div>
+        <div class="hero-stats">
+          <div class="stat"><b>30+</b><span>Años</span></div>
+          <div class="stat"><b>+1000</b><span>Procesos*</span></div>
+          <div class="stat"><b>5</b><span>Servicios</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- trust strip -->
+  <section class="trust">
+    <div class="wrap trust-grid">
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>+30 años</b><span>de trayectoria</span></div></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg><div><b>Psicopedagoga y psicóloga</b><span>equipo profesional</span></div></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg><div><b>Invitadas por universidades</b><span>nos mantenemos actualizadas*</span></div></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.8 5.6a5.5 5.5 0 00-7.8 0L12 6.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg><div><b>Atención personalizada</b><span>a tu ritmo</span></div></div>
+    </div>
+  </section>
+
+  <!-- services preview -->
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="#B0875A" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>Lo que hacemos</span>
+        <h2>Un acompañamiento para cada etapa</h2>
+        <p class="lead">Cada proceso se adapta a la persona y al momento que está atravesando.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M21 12v5M7 11v5c0 1 2 3 5 3s5-2 5-3v-5"/></svg><h3>Orientación vocacional</h3><p>Un recorrido para conocerte mejor, explorar opciones y llegar a una elección informada y propia.</p></div>
+        <div class="card reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V5a1 1 0 011-1h12a1 1 0 011 1v14"/><path d="M4 19h15M8 8h6M8 12h6"/></svg><h3>Metodología de estudio</h3><p>Herramientas para organizar el tiempo, comprender mejor y rendir sin tanto desgaste.</p></div>
+        <div class="card reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="12" cy="8" r="4"/></svg><h3>Coaching laboral</h3><p>Acompañamiento para repensar tu camino profesional y la búsqueda de tu primer empleo.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:40px;"><a class="btn btn-ghost" href="#servicios" data-page>Ver todos los servicios</a></div>
+    </div>
+  </section>
+
+  <!-- testimonial highlight -->
+  <section class="block" style="background:var(--cream-2);">
+    <div class="wrap">
+      <div class="tst-feature reveal">
+        <span class="eyebrow" style="justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#B0875A" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>Experiencias personales</span>
+        <p class="quote">"Hice el proceso de orientación vocacional en Espacio San Isidro durante mi último año de colegio. Elegí Psicología en la UCA y arranqué al año siguiente. Fue una excelente elección."</p>
+        <div class="who">Lucía Hays · Orientación vocacional</div>
+        <div style="margin-top:26px;"><a class="btn btn-ghost" href="#testimonios" data-page>Leer más testimonios</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- closing CTA -->
+  <section class="block" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>¿Empezamos a charlar?</h2>
+        <p>Contanos en qué momento estás y coordinamos una primera entrevista. Sin compromiso.</p>
+        <a class="btn btn-primary wa" href="#" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========================= SERVICIOS ========================= -->
+<div class="page" id="servicios">
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="#B0875A" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>Servicios</span>
+        <h2>Acompañamiento vocacional, laboral y personal</h2>
+        <p class="lead">Estos son los textos de ejemplo de cada servicio: editalos con tu descripción real, duración y modalidad.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M21 12v5M7 11v5c0 1 2 3 5 3s5-2 5-3v-5"/></svg><h3>Orientación vocacional</h3><p>Un recorrido para conocerte mejor, explorar carreras y opciones, y llegar a una elección informada y propia. [Texto de ejemplo.]</p><div class="who">Adolescentes y adultos</div></div>
+        <div class="card reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V5a1 1 0 011-1h12a1 1 0 011 1v14"/><path d="M4 19h15M8 8h6M8 12h6"/></svg><h3>Metodología de estudio</h3><p>Herramientas para organizar el tiempo, comprender mejor y rendir sin tanto desgaste. [Texto de ejemplo.]</p><div class="who">Secundario y universidad</div></div>
+        <div class="card reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="12" cy="8" r="4"/></svg><h3>Coaching laboral</h3><p>Acompañamiento para repensar tu camino profesional, transiciones y nuevos desafíos. [Texto de ejemplo.]</p><div class="who">Adultos y profesionales</div></div>
+        <div class="card reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 6v12a2 2 0 002 2h12a2 2 0 002-2V6M9 6V4h6v2"/><path d="M9 13l2 2 4-4"/></svg><h3>Búsqueda de primer empleo</h3><p>CV, entrevistas y primeros pasos en el mundo del trabajo, con guía concreta. [Texto de ejemplo.]</p><div class="who">Jóvenes</div></div>
+        <div class="card reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.8 5.6a5.5 5.5 0 00-7.8 0L12 6.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg><h3>Terapias para todas las edades</h3><p>Espacios de acompañamiento personal y emocional adaptados a cada etapa de la vida. [Texto de ejemplo.]</p><div class="who">Todas las edades</div></div>
+        <div class="card reveal" style="display:flex;flex-direction:column;justify-content:center;background:var(--cream-2);border-style:dashed;"><h3 style="margin-bottom:.5rem;">¿Otro servicio?</h3><p>Sumá acá talleres, charlas o grupos que ofrezcan.</p><a class="who" href="#contacto" data-page style="margin-top:14px;">Consultanos →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- process -->
+  <section class="block process">
+    <div class="wrap">
+      <div class="section-head reveal" style="margin-bottom:0;">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="#D9B985" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>Cómo trabajamos</span>
+        <h2>El proceso, paso a paso</h2>
+        <p class="lead">Una secuencia clara para que sepas en qué consiste el acompañamiento. <em>[Ajustá los pasos a tu metodología real.]</em></p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="num">01</span><h3>Primer encuentro</h3><p>Nos conocemos, escuchamos tu situación y definimos juntos los objetivos. [Ejemplo.]</p></div>
+        <div class="step reveal"><span class="num">02</span><h3>Exploración</h3><p>Trabajamos con técnicas y entrevistas para conocer intereses y aptitudes. [Ejemplo.]</p></div>
+        <div class="step reveal"><span class="num">03</span><h3>Encuentros de trabajo</h3><p>Profundizamos en opciones e información, a tu ritmo. [Ejemplo.]</p></div>
+        <div class="step reveal"><span class="num">04</span><h3>Devolución</h3><p>Cerramos con una devolución y un informe que te quedan como guía. [Ejemplo.]</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0;margin-top:92px;">
+    <div class="wrap"><div class="cta-band reveal"><h2>¿Querés saber cuál se ajusta a vos?</h2><p>Escribinos y lo vemos juntas en una primera charla.</p><a class="btn btn-primary wa" href="#" target="_blank" rel="noopener">Escribinos por WhatsApp</a></div></div>
+  </section>
+</div>
+
+<!-- ========================= NOSOTRAS ========================= -->
+<div class="page" id="nosotras">
+  <section class="block">
+    <div class="wrap split">
+      <div class="photo reveal"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-4 4 3 3-3 6 5"/></svg>Foto de Majo y Vero<br>(reemplazar por imagen real)</div></div>
+      <div class="reveal">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="#B0875A" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>Quiénes somos</span>
+        <h2>Somos Majo y Vero, y juntas creamos Espacio San Isidro.</h2>
+        <p>Somos un centro dedicado hace más de 30 años al asesoramiento vocacional, laboral y personal. Con nuestro equipo te acompañamos en el encuentro de tu carrera, en el seguimiento de tu metodología de estudio y en la búsqueda de tu primer empleo.</p>
+        <p><em>[Texto de ejemplo — completar:</em> contá un poco más sobre la mirada del espacio, cómo trabajan y qué las distingue. Dos o tres oraciones cálidas alcanzan.<em>]</em></p>
+        <blockquote class="brand">"Nuestro trabajo es acompañarte a tomar una decisión propia, con información y sin presiones."</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- credibility / Austral -->
+  <section class="block" style="background:var(--cream-2);">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="#B0875A" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>Siempre actualizándonos</span>
+        <h2>Nos formamos para acompañarte mejor</h2>
+        <p>Participamos de encuentros y jornadas con universidades para estar al día con la oferta académica y las novedades de cada carrera. Así, la información que compartimos es actual y confiable. <em>[Texto de ejemplo — ajustar.]</em></p>
+        <p style="color:var(--muted);font-size:.92rem;"><em>* En la imagen original aparece la invitación de la Universidad Austral. Confirmá el detalle antes de publicar.</em></p>
+      </div>
+      <div class="photo reveal" style="aspect-ratio:16/10;"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-4 4 3 3-3 6 5"/></svg>Foto en jornada universitaria<br>(reemplazar por imagen real)</div></div>
+    </div>
+  </section>
+
+  <!-- values -->
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="#B0875A" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>Cómo trabajamos</span><h2>Lo que nos importa</h2></div>
+      <div class="values reveal">
+        <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17l-5-5"/></svg><div><b>Decisión propia</b><p>Te damos información y herramientas; la elección es tuya. [Ejemplo.]</p></div></div>
+        <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17l-5-5"/></svg><div><b>Trato cercano</b><p>Cada persona y cada familia es única. [Ejemplo.]</p></div></div>
+        <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17l-5-5"/></svg><div><b>Información actualizada</b><p>Sobre carreras, instituciones y el mundo laboral. [Ejemplo.]</p></div></div>
+        <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17l-5-5"/></svg><div><b>Experiencia que respalda</b><p>Más de tres décadas acompañando procesos. [Ejemplo.]</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0;">
+    <div class="wrap"><div class="cta-band reveal"><h2>Conocenos en una primera charla</h2><p>Escribinos por WhatsApp o seguinos en Instagram para conocernos mejor.</p><a class="btn btn-primary wa" href="#" target="_blank" rel="noopener">Escribinos por WhatsApp</a></div></div>
+  </section>
+</div>
+
+<!-- ========================= TESTIMONIOS ========================= -->
+<div class="page" id="testimonios">
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head center reveal"><span class="eyebrow" style="justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#B0875A" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>Experiencias personales</span><h2>Lo que cuentan quienes pasaron por acá</h2><p class="lead" style="margin:0 auto;">Historias reales de chicos y familias que hicieron su proceso con nosotras.</p></div>
+      <div class="grid-3">
+        <div class="tst reveal"><p class="quote">"Hice el proceso de orientación vocacional en Espacio San Isidro durante mi último año de colegio. Elegí Psicología en la UCA y arranqué al año siguiente. Fue una excelente elección."</p><div class="who"><div class="avatar">L</div><div><b>Lucía Hays</b><span>Orientación vocacional</span></div></div></div>
+        <div class="tst reveal"><p class="quote">"[Texto de ejemplo] Sumá acá otro testimonio real de un alumno, una familia o un consultante. Funciona mejor si es breve y concreto."</p><div class="who"><div class="avatar">N</div><div><b>Nombre Apellido</b><span>Servicio · Año</span></div></div></div>
+        <div class="tst reveal"><p class="quote">"[Texto de ejemplo] Un tercer testimonio ayuda a generar confianza. Pueden ser de distintos servicios para mostrar variedad."</p><div class="who"><div class="avatar">N</div><div><b>Nombre Apellido</b><span>Servicio · Año</span></div></div></div>
+        <div class="tst reveal"><p class="quote">"[Texto de ejemplo] Podés agregar tantos como quieras. Los de padres también suman mucho."</p><div class="who"><div class="avatar">N</div><div><b>Nombre Apellido</b><span>Familiar · Año</span></div></div></div>
+        <div class="tst reveal"><p class="quote">"[Texto de ejemplo] Testimonio breve sobre metodología de estudio o coaching laboral."</p><div class="who"><div class="avatar">N</div><div><b>Nombre Apellido</b><span>Servicio · Año</span></div></div></div>
+        <div class="tst reveal" style="background:var(--cream-2);border-style:dashed;justify-content:center;text-align:center;"><p class="quote" style="font-style:normal;font-family:'Mulish',sans-serif;color:var(--muted);font-size:1rem;">¿Tenés una experiencia para compartir? Nos encantaría leerte.</p><div style="margin-top:8px;"><a class="who" href="#contacto" data-page style="color:var(--bronze-deep);">Contanos →</a></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========================= CONTACTO ========================= -->
+<div class="page" id="contacto">
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head center reveal"><span class="eyebrow" style="justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#B0875A" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>Contacto</span><h2>Hablemos</h2><p class="lead" style="margin:0 auto;">Escribinos por WhatsApp o seguinos en Instagram. Te respondemos a la brevedad.</p></div>
+
+      <div class="contact-cards">
+        <div class="ccard reveal">
+          <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.3.3c-.2.2-.3.4-.2.6.2.4.9 1.4 1.9 2.2 1.2 1.1 2.2 1.4 2.5 1.5.2.1.4 0 .5-.1l.9-1c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3 0 .2 0 .7-.2 1.2z"/></svg>
+          <h3>WhatsApp</h3><p>La forma más rápida de coordinar una entrevista.</p>
+          <a class="btn btn-primary wa" href="#" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+        </div>
+        <div class="ccard reveal">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          <h3>Instagram</h3><p>Seguinos para consejos, novedades y conocernos mejor.</p>
+          <a class="btn btn-ig" href="https://instagram.com/espacio.sanisidro" target="_blank" rel="noopener">@espacio.sanisidro</a>
+        </div>
+      </div>
+
+      <div class="info-grid reveal">
+        <div class="info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Dirección</b><p>Martín y Omar 268, San Isidro<br>Buenos Aires (1642)</p></div></div>
+        <div class="info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Horarios</b><p>Lun a Vie · 00 a 00 hs<br><span style="color:var(--muted);font-size:.82rem;">[completar horario real]</span></p></div></div>
+        <div class="info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L20 13l1 4a16 16 0 01-16-13z"/></svg><div><b>Teléfono</b><p>+54 11 0000 0000<br><span style="color:var(--muted);font-size:.82rem;">[completar]</span></p></div></div>
+      </div>
+
+      <div class="map reveal">Mapa de ubicación (insertá acá el iframe de Google Maps de Martín y Omar 268, San Isidro)</div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <svg viewBox="0 0 100 100" fill="none" stroke="#D9B985" stroke-width="1.6"><rect x="26" y="26" width="48" height="48" transform="rotate(45 50 50)"/><circle cx="50" cy="39" r="12"/><circle cx="61" cy="50" r="12"/><circle cx="50" cy="61" r="12"/><circle cx="39" cy="50" r="12"/></svg>
+        <b>Espacio San Isidro</b>
+      </div>
+      <nav class="foot-links">
+        <a href="#inicio" data-page>Inicio</a><a href="#servicios" data-page>Servicios</a><a href="#nosotras" data-page>Nosotras</a><a href="#testimonios" data-page>Testimonios</a><a href="#contacto" data-page>Contacto</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Espacio San Isidro · Martín y Omar 268, San Isidro</span>
+      <span>Asesoramiento vocacional, laboral y personal</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+
+  /* ==== WhatsApp link (REEMPLAZAR número) ==== */
+  var WA_NUMBER = "5491100000000"; // <-- poné acá el número real, ej: 54911XXXXXXXX
+  var WA_TEXT = encodeURIComponent("Hola! Quiero pedir una entrevista en Espacio San Isidro.");
+  var waHref = "https://wa.me/" + WA_NUMBER + "?text=" + WA_TEXT;
+  document.querySelectorAll('.wa, #waNav').forEach(function(a){ a.setAttribute('href', waHref); });
+
+  /* ==== router de páginas ==== */
+  var pages = document.querySelectorAll('.page');
+  var navItems = document.querySelectorAll('.nav-links a[data-page]');
+  var titles = {
+    inicio:'Espacio San Isidro · Orientación vocacional',
+    servicios:'Servicios · Espacio San Isidro',
+    nosotras:'Nosotras · Espacio San Isidro',
+    testimonios:'Testimonios · Espacio San Isidro',
+    contacto:'Contacto · Espacio San Isidro'
+  };
+  function showPage(id){
+    if(!document.getElementById(id)) id = 'inicio';
+    pages.forEach(function(p){ p.classList.toggle('active', p.id===id); });
+    navItems.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); });
+    document.title = titles[id] || titles.inicio;
+    window.scrollTo({top:0,behavior:'auto'});
+    var active = document.getElementById(id);
+    requestAnimationFrame(function(){
+      active.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    });
+  }
+  function currentId(){ return (location.hash || '#inicio').replace('#',''); }
+  window.addEventListener('hashchange', function(){ showPage(currentId()); closeMenu(); });
+  showPage(currentId());
+
+  /* ==== menú móvil ==== */
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('navlinks');
+  function closeMenu(){ links.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+  /* ==== año ==== */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
